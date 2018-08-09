@@ -1,2 +1,2 @@
 # learning-material-in-AI-lab
-some learning program in summer holiday
+some learning programs in summer holiday
