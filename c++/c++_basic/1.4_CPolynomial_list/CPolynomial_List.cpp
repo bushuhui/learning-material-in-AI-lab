@@ -1,4 +1,4 @@
-#include "1.4.h"
+#include "CPolynomial_List.h"
 
 
 CPolynomial::CPolynomial()
