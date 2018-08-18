@@ -1,7 +1,8 @@
 #include<iostream>
-using namespace std;
-#include"1.1头文件.h"
+#include"1.1头文件.h" // FIXME: please confirm the program can be run
 
+
+using namespace std;
 
 int main()
 {
