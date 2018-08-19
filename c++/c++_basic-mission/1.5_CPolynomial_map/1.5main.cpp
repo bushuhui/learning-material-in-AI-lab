@@ -1,4 +1,4 @@
-#include "1.5.h"
+#include "CPolynomial.h"
 
 int main()
 {
@@ -17,9 +17,6 @@ int main()
 	
  	p3 = p1*p2;
 	p3.Print();
-
-	//p1.Print();
- 	//p2.Print();
 
 	return 0;
 }

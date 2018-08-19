@@ -119,7 +119,7 @@ void CPolynomial::AddOneTerm(Node term)
 		return;
 	else if (term.deg < 0) 
 	{ 
-		cout<<"Degree can not be negative!"<<endl; 
+		std::cout<<"Degree can not be negative!"<<std::endl; 
 		return; 
 	}
     
@@ -160,7 +160,7 @@ void CPolynomial::AddOneTerm(Node term)
 void CPolynomial::Print()
 {
 	list<Node>::iterator it;
-	cout << "The polynomial is:" << endl;
+	std::cout << "The polynomial is:" << std::endl;
 
 	for (it = m_Polynomial.begin(); it != m_Polynomial.end(); it++)
 	{
@@ -170,19 +170,19 @@ void CPolynomial::Print()
         {
 			if (td.cof>0)
 			{
-				cout << "+";
+				std::cout << "+";
 			}
 		}
-        cout << td.cof << " ";
+        std::cout << td.cof << " ";
         
 		if (td.deg != 0)
         {
-			cout << "x^" << td.deg;
+			std::cout << "x^" << td.deg;
         }
-		cout << " ";
+		std::cout << " ";
 	}
 
-	cout << endl;
+	std::cout << endl;
 }
 
 

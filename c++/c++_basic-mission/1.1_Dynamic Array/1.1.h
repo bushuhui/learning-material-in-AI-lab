@@ -4,11 +4,9 @@
 #define SAFEDELETES(p)   if(p) {delete [] p; p=NULL;}
 #define SAFEJUDGEMENT(p)  if(p==NULL) {cout<<"no ehough memory"<<endl; return 0;}
 #include<iostream>
-using namespace std; 
 
 class CDArray
 {	
-
 public:
     CDArray();                              // Default constructor 
     CDArray(int nSize, double dValue);      // Other constructor: set all elements to 0 value
@@ -25,7 +23,6 @@ public:
     int SetAt (int nIndex, double dValue);      // Set a element value
     int Pushback(double dValue);				//Pushback a element to array 
     CDArray& CDArray::operator = (const CDArray& array);// Overloaded assignment operator "="
-
 
 private:
     void    Init();        // Initialization

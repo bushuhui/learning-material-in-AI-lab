@@ -7,9 +7,6 @@
 #include <cstring>
 #include <fstream>
 
-// FIXME: do not use namespace in header file
-using namespace std;
-
 typedef struct Node
 {
     double  cof;      // coefficient 

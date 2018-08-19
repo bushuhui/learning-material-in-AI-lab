@@ -28,7 +28,6 @@ void CDArray::Init()
 {
     m_nSize=0;
     m_pData=NULL;
-    cout<<"init"<<endl;
 }
 
 void CDArray::Free()	
@@ -37,7 +36,6 @@ void CDArray::Free()
     {
         delete [] m_pData;
     }
-    cout<<"free"<<endl;
 }
 
 
@@ -53,7 +51,7 @@ int CDArray::SetSize(int nSize)
         double *m_newzhizhen = new double [mn];
 		if(m_newzhizhen==NULL)
         {
-            cout << "no enough memory"<<endl;
+            std::cout << "no enough memory"<<endl;
             return 0;
         }
 		for(int i=0;i<mn;i++)
@@ -71,7 +69,7 @@ int CDArray::SetSize(int nSize)
         double *m_newzhizhen = new double [mn];
 		if(m_newzhizhen==NULL)
         {
-            cout<<"no enough memory"<<endl;
+            std::cout<<"no enough memory"<<std::endl;
             return 0;
         }
 		for(int i=0;i<m_nSize;i++)
@@ -107,7 +105,7 @@ void  CDArray::Print()
 {
     for(int i=0;i<m_nSize;i++)
     {
-        cout<<m_pData[i]<<endl;
+        std::cout<<m_pData[i]<<std::endl;
     }
 }
 
@@ -164,10 +162,9 @@ int CDArray::DeleteAt(int nIndex)
 
 int  CDArray::InsertAt(int nIndex, double dValue)
 {
-    cout<<nIndex<<" "<<dValue<<endl;
     if (!InvalidateIndex(nIndex))
     {
-        cout << "Index is invalide in InsertAt()!" << endl;
+        std::cout << "Index is invalide in InsertAt()!" <<std::endl;
         return 0;
     }
     else
@@ -207,7 +204,7 @@ double  CDArray::GetAt(int nIndex)
 {
     if( InvalidateIndex(nIndex) )
     {
-        cout << "invalid" << endl;
+        std::cout << "invalid" << std::endl;
         return 0;
     }
     else

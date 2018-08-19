@@ -1,4 +1,5 @@
-#include"1.5.h"
+#include"CPolynomial.h"
+
 CPolynomial::CPolynomial()
 {
 	m_Polynomial.clear();
@@ -21,29 +22,22 @@ CPolynomial::CPolynomial(const CPolynomial& poly)
 		this->m_Polynomial.clear();
 		this->m_Polynomial = poly.m_Polynomial; 
 	}
-
 }
 
 
 CPolynomial CPolynomial::operator+(const CPolynomial& right) 
 {
-	CPolynomial poly(*this);
-	
-	map<int,double>::iterator iter1;
-	
+	CPolynomial poly(*this);	
+	map<int,double>::iterator iter1;	
 	map<int, double> tp1;
-
-	tp1 = right.m_Polynomial;
-	
+	tp1 = right.m_Polynomial;	
 	int x; double y;
 	for(iter1=tp1.begin();iter1!=tp1.end();iter1++)
 	{
 		x=iter1->first;    y=iter1->second;
 		poly.AddOneTerm(x,y);
-	}
-	
+	}	
 	return poly;
-	
 }
 
 CPolynomial CPolynomial::operator-(const CPolynomial& right)
@@ -61,10 +55,8 @@ CPolynomial CPolynomial::operator-(const CPolynomial& right)
 		y = -(iter1->second);
 		x = iter1->first;
 		poly.AddOneTerm(x,y);
-
 	}
 	return poly;
-
 }
 
 CPolynomial CPolynomial::operator*(const CPolynomial& right)
@@ -72,21 +64,16 @@ CPolynomial CPolynomial::operator*(const CPolynomial& right)
 	CPolynomial poly(*this);
 	CPolynomial poly1;
 	map<int, double> tp1;   tp1 = right.m_Polynomial;
-	map<int, double> tp2;	tp2 = poly.m_Polynomial;
-	
+	map<int, double> tp2;	tp2 = poly.m_Polynomial;	
 	map<int, double>::iterator iter1;   
 	map<int, double>::iterator iter2;   
-
 	int x; double y;
 	for(iter1 = tp1.begin();iter1!=tp1.end();iter1++)
 	{	for(iter2 = tp2.begin();iter2!=tp2.end();iter2++)
-		{
-				
+		{				
 			y = (iter1->second) * (iter2->second);
-			x = (iter1->first) + (iter2->first);
-			
+			x = (iter1->first) + (iter2->first);			
 			poly1.AddOneTerm(x,y);
-
 		}
 	}
 	return poly1;
@@ -103,13 +90,12 @@ CPolynomial &CPolynomial::operator=(const CPolynomial& right)
 }
 
 
-//觉得用这个太复杂就没用了 
+//觉得用这个太繁琐就没用了  留在这里以后可以参考下
 /*
 void CPolynomial::MergeSimilarTerms(map<int, double> it1,map<int, double> it2)
 {	
 	int deg;  double cof;
 	double cof1,cof2;
-
 	map<int, double>::iterator iter1;
 	map<int, double>::iterator iter2;
 	iter1=it1.begin();
@@ -121,10 +107,8 @@ void CPolynomial::MergeSimilarTerms(map<int, double> it1,map<int, double> it2)
 		iter2 = it2.find(int(deg));
 		
 		if(iter2 == it2.end())
-        {
-			
-			it2[int(deg)]=cof;
-			
+        {			
+			it2[int(deg)]=cof;			
 		}
 		if(iter2 != it2.end())
 		{
@@ -132,13 +116,11 @@ void CPolynomial::MergeSimilarTerms(map<int, double> it1,map<int, double> it2)
 			cof2=iter2->second;
 			it2.erase(iter2);
 			if((cof1 + cof2)!=0)
-			{it2[int(deg)]= cof1 + cof2 ;}
-			
+			{it2[int(deg)]= cof1 + cof2 ;}			
 		}
 	
 	}
-	m_Polynomial=it2;
-	
+	m_Polynomial=it2;	
 	
 }
 */
@@ -149,7 +131,7 @@ void CPolynomial::ReadFromFile(string file)
     inp.open(file.c_str());
 	if(!inp)
 	{
-		cout<<"failed"<<endl;
+		std::cout<<"failed"<<std::endl;
 	}
 	char ch;
 	int n;
@@ -159,11 +141,8 @@ void CPolynomial::ReadFromFile(string file)
 	for (int i=0; i<n; i++)
 	{	
 		inp>>deg; 
-		inp>>cof;
-		
-	 AddOneTerm (deg,cof);
-		
-	
+		inp>>cof;		
+	 AddOneTerm (deg,cof);			
 	}
 	inp.close();
 }
@@ -173,8 +152,7 @@ void CPolynomial::AddOneTerm(int x,double y)
 		int deg; double cof,cof1,cof2;
 		deg = x; cof = y;
 		map<int,double>::iterator iter1;
-		iter1 = m_Polynomial.find(int(deg));
-		
+		iter1 = m_Polynomial.find(int(deg));		
 		if(iter1 == m_Polynomial.end())
         {
 			
@@ -189,39 +167,30 @@ void CPolynomial::AddOneTerm(int x,double y)
 			if((cof1 + cof2)!=0)
 			{
 				m_Polynomial[int(deg)]= cof1 + cof2 ;
-			}
-			
+			}	
 		}
-
-
 }
-
-
-
 
 void CPolynomial::Print()
 {
 	map<int,double>::iterator it;
-	cout << "The polynomial is:" << endl;
-
+	std::cout << "The polynomial is:" <<std::endl;
 	for (it = m_Polynomial.begin(); it != m_Polynomial.end(); it++)
-	{
-		
+	{		
         if (it != m_Polynomial.begin())
         {
 			if (it->second>0)
 			{
-				cout << "+";
+				std::cout << "+";
 			}
 		}
-		cout << it->second << " ";
-        
+		std::cout << it->second << " ";       
 		if (it->first != 0)
         {
-			cout << "x^" << it->first;
+			std::cout << "x^" << it->first;
         }
-		cout << " ";
+		std::cout << " ";
 	}
-	cout<<endl;
+	std::cout<<endl;
 }
 

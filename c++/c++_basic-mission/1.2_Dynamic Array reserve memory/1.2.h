@@ -2,7 +2,6 @@
 #define _CDARRAY_H_
 
 #include<iostream>
-using namespace std;
 #define SAFEDELETES(p)   if(p) {delete [] p; p=NULL;}
 #define SAFEJUDGEMENT(p)  if(p==NULL) {cout<<"no ehough memory"<<endl; return 0;}
 

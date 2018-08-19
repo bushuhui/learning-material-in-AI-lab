@@ -2,7 +2,6 @@
 #define _CDARRAY_H_
 
 #include<iostream>
-using namespace std;
 #define SAFEDELETES(p)   if(p) {delete [] p; p=NULL;}
 #define SAFEJUDGEMENT(p)  if(p==NULL) {cout<<"no ehough memory"<<endl; return 0;}
 
@@ -88,7 +87,6 @@ void CDArray<DataType>::Free()
 	{
 		delete [] m_pData;
 	}
-	cout<<"free"<<endl;
 }
 
 template <typename DataType>
@@ -101,7 +99,7 @@ int CDArray<DataType>::SetSize(int nSize)
 			DataType *m_newzhizhen = new DataType [mn];
 			if(m_newzhizhen==NULL)
 			{
-				cout<<"no enough memory"<<endl;
+				std::cout<<"no enough memory"<<std::endl;
 				return 0;
 			}
 
@@ -119,7 +117,7 @@ int CDArray<DataType>::SetSize(int nSize)
 		DataType *m_newzhizhen = new DataType [mn];
 			if(m_newzhizhen==NULL)
 			{
-				cout<<"no enough memory"<<endl;
+				std::cout<<"no enough memory"<<std::endl;
 				return 0;
 			}
 			for(int i=0;i<m_nSize;i++)
