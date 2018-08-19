@@ -1,7 +1,4 @@
-﻿#include<iostream>
-using namespace std;
-#include "头文件.h"
-
+﻿#include "CDArray.h"
 
 int main()
 {
@@ -20,14 +17,14 @@ int main()
 	a.Print();
 	
 	
-	CDArray<double> acopy = a;  //此处用到了拷贝构造函数
+	CDArray<double> acopy = a;  
 	acopy.Print();
 	
-	CDArray<double> acopy2 (a);  //该语句等同于上面的语句，都是初始化
+	CDArray<double> acopy2 (a);  
 	acopy2.Print();
 	
 	CDArray<double> acopy3; 
-	acopy3 = a;                    //此处用到了赋值操作符号"="的重载
+	acopy3 = a;                   
 	acopy3.Print();
 
 	CDArray<int> b;

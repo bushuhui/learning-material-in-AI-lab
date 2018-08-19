@@ -1,7 +1,4 @@
-#include<iostream>
-using namespace std;
-#include"1.2м╥нд╪Ч.h"
-
+#include"CDArray.h"
 
 int main()
 {

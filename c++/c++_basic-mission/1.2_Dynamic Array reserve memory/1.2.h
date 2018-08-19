@@ -1,29 +1,32 @@
+#ifndef _CDARRAY_H_
+#define _CDARRAY_H_
+
+#include<iostream>
+using namespace std;
 #define SAFEDELETES(p)   if(p) {delete [] p; p=NULL;}
 #define SAFEJUDGEMENT(p)  if(p==NULL) {cout<<"no ehough memory"<<endl; return 0;}
 
 class CDArray
 {	
-	
 	public:
-	 CDArray();            // 缺省构造函数
-	 CDArray(int nSize, double dValue);    // 其他构造函数，设置一定数组大小，并设置所有元素为0；当然还可以定义其他不同参数的构造函数，以方便用户使用
-	 ~CDArray();        // 析构函数
+	 CDArray();            
+	 CDArray(int nSize, double dValue);  
+	 ~CDArray();       
      CDArray(CDArray const &arr);
-	 void  	   Print();             // 输出显示所有数组元素的值
-	int        GetSize();           // 获取数组大小（元素个数）
+	 void  	   Print();             
+	int        GetSize();          
 	int        SetSize(int nSize);  
-	int	DeleteAt(int nIndex);			// 从数组中删除一个元素
-	double GetAt (int nIndex);					// 获取某个元素
+	int	DeleteAt(int nIndex);			
+	double GetAt (int nIndex);					
 	
-	int InsertAt(int nIndex, double dValue);	// 插入一个新的元素到数组中
-	int SetAt (int nIndex, double dValue);      // 设置某个元素的值
-	int Pushback(double dValue);// 追加一个新的元素到数组末尾
-	CDArray& CDArray::operator = (const CDArray& array);// 重载赋值操作符号"="
+	int InsertAt(int nIndex, double dValue);	
+	int SetAt (int nIndex, double dValue);     
+	int Pushback(double dValue);
+	CDArray& CDArray::operator = (const CDArray& array);
 	
-
 private:
-	void    Init();        // 初始化
-	void    Free();        // 释放动态内存
+	void    Init();        
+	void    Free();        
 	inline    int    InvalidateIndex(int nIndex)
 	{	if (nIndex<0||nIndex> m_nSize)
 		{
@@ -32,10 +35,12 @@ private:
 			else
 		{
 			return 1;
-		}// 判断下标的合法性
+		}
 	}
 private:
-	double    *m_pData;    // 存放数组的动态内存指针
-	int        m_nSize; // 数组的元素个数
-	int        m_nMax;	//预留给动态数组的内存大小
+	double    *m_pData;    
+	int        m_nSize; 
+	int        m_nMax;	
 };
+
+#endif
