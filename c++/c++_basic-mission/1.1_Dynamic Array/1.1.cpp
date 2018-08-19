@@ -1,25 +1,17 @@
-#include<iostream>
-#include"1.1.h" // FIXME: the name `1.1.h` is very bad, please change to 'CDArray.h' 
-//        or something else to easy known the contents of the
-//        file
 
-
-using namespace std; // FIXME: put using namespace under includes
+#include"CDArray.h" 
 
 CDArray::CDArray()
 {
     Init();
-
 }
 
 CDArray::CDArray(int nSize, double dValue = 0)  
 {	
-
-    m_nSize=nSize;
+	m_nSize=nSize;
     double *a=new double [m_nSize];
     m_pData=a;
-
-    for(int i=0;i<m_nSize;i++)
+	for(int i=0;i<m_nSize;i++)
     {
         m_pData[i]=0;
     }
@@ -54,28 +46,21 @@ void CDArray::Free()
 
 int CDArray::SetSize(int nSize) 
 {
-    // FIXME: please make the code clean and beautiful when finish the debug
-    //        please remove uncessary blank lines
-
     int mn;
     mn=nSize;
-
-    if(nSize<m_nSize)
+	    if(nSize<m_nSize)
     {
         double *m_newzhizhen = new double [mn];
-
-        if(m_newzhizhen==NULL)
+		if(m_newzhizhen==NULL)
         {
             cout << "no enough memory"<<endl;
             return 0;
         }
-
-        for(int i=0;i<mn;i++)
+		for(int i=0;i<mn;i++)
         {
             m_newzhizhen[i]= m_pData[i];
         }
-
-        SAFEDELETES(m_pData);
+		SAFEDELETES(m_pData);
         m_pData=m_newzhizhen;
         m_nSize=nSize;
         return 1;
@@ -84,14 +69,12 @@ int CDArray::SetSize(int nSize)
     if(nSize>m_nSize)
     {
         double *m_newzhizhen = new double [mn];
-
-        if(m_newzhizhen==NULL)
+		if(m_newzhizhen==NULL)
         {
             cout<<"no enough memory"<<endl;
             return 0;
         }
-
-        for(int i=0;i<m_nSize;i++)
+		for(int i=0;i<m_nSize;i++)
         {
             m_newzhizhen[i]= m_pData[i];
         }
@@ -109,8 +92,6 @@ int CDArray::SetSize(int nSize)
     {
         return 1;
     }
-
-
 }
 
 int CDArray::SetAt(int nIndex, double dValue)
@@ -118,8 +99,7 @@ int CDArray::SetAt(int nIndex, double dValue)
     if(m_pData==NULL)
         if(nIndex<0||nIndex>=m_nSize)
             m_pData[nIndex]=dValue;
-
-    return 1;
+	 return 1;
 }
 
 
@@ -145,8 +125,7 @@ int CDArray::Pushback(double dValue)
     if(m_pData) delete [] m_pData;
     m_pData=m_newzhizhen;
     m_nSize++;
-
-    return 0;
+	return 0;
 }
 
 int CDArray::DeleteAt(int nIndex)
@@ -158,8 +137,7 @@ int CDArray::DeleteAt(int nIndex)
         double *m_newzhizhen=NULL;
         m_newzhizhen= new double [m_nSize-1];
         SAFEJUDGEMENT(m_newzhizhen);
-
-        if(nIndex==0)
+		if(nIndex==0)
         {
             for(int i=1;i<m_nSize;i++)
             {
@@ -245,8 +223,7 @@ CDArray::CDArray(const CDArray& arr)
     {
         m_pData[i] = arr.m_pData[i];
     }
-
-    m_nSize = arr.m_nSize;
+	m_nSize = arr.m_nSize;
 }
 
 CDArray& CDArray::operator = (const CDArray& array)
@@ -258,7 +235,6 @@ CDArray& CDArray::operator = (const CDArray& array)
     {
         m_pData[i] = array.m_pData[i];
     }
-
-    m_nSize = array.m_nSize;
+	m_nSize = array.m_nSize;
     return *this;
 }

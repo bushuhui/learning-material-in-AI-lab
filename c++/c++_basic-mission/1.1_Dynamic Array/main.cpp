@@ -1,8 +1,4 @@
-#include<iostream>
-#include"1.1м╥нд╪Ч.h" // FIXME: please confirm the program can be run
-
-
-using namespace std;
+#include"CDArray.h" 
 
 int main()
 {
