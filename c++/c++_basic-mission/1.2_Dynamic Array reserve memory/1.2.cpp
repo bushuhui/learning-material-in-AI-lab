@@ -38,10 +38,6 @@ void CDArray::Free()
 	cout<<"free"<<endl;
 }
 
-
-
-
-
 int CDArray::SetSize(int nSize)
 {
 	int mn;
@@ -101,21 +97,21 @@ int CDArray::SetAt(int nIndex, double dValue)
 
 void  CDArray::Print()
 {
-	cout<<"´òÓ¡Öµ"<<endl;
+	cout<<"æ‰“å°å€¼"<<endl;
 	for(int i=0;i<m_nSize;i++)
 	{
 		cout<<m_pData[i]<<endl;
 	}
 }
 
-int CDArray::Pushback(double dValue)  //×·¼ÓÒ»¸öÐÂµÄÔªËØµ½Êý×éÄ©Î²
+int CDArray::Pushback(double dValue)  //è¿½åŠ ä¸€ä¸ªæ–°çš„å…ƒç´ åˆ°æ•°ç»„æœ«å°¾
 {
 	if(m_nSize==m_nMax||m_nMax==0)
 	{
 			double *m_newzhizhen = NULL;
 			if(m_nSize==0){m_nMax=1;}
 			else
-			{m_nMax= m_nSize*2;}		//·ÖÅäÁ½±¶µÄÄÚ´æ
+			{m_nMax= m_nSize*2;}		//åˆ†é…ä¸¤å€çš„å†…å­˜
 			m_newzhizhen = new double [m_nMax];
 			SAFEJUDGEMENT (m_newzhizhen);
 				for( int i=0;i<m_nSize;i++ )
