@@ -69,11 +69,11 @@ CDArray<DataType>::CDArray(int nSize, DataType dValue = 0)
 template <typename DataType>
 CDArray<DataType>::~CDArray()
 {
-	 Free();	//析构函数
+	 Free();	
 }
 
 template <typename DataType>
-void CDArray<DataType>::Init()  //初始化
+void CDArray<DataType>::Init() 
 {
 	m_nSize=0;
 	m_pData=NULL;
@@ -82,7 +82,7 @@ void CDArray<DataType>::Init()  //初始化
 }
 
 template <typename DataType>
-void CDArray<DataType>::Free()	//释放内存
+void CDArray<DataType>::Free()	
 {
 	if(m_pData!= NULL)
 	{
@@ -159,7 +159,7 @@ void  CDArray<DataType>::Print()
 }
 
 template <typename DataType>
-int CDArray<DataType>::Pushback(DataType dValue)  //追加一个新的元素到数组末尾
+int CDArray<DataType>::Pushback(DataType dValue) 
 {
 	if(m_nSize==m_nMax||m_nMax==0)
 	{
@@ -167,7 +167,7 @@ int CDArray<DataType>::Pushback(DataType dValue)  //追加一个新的元素到数组末尾
 			if(m_nSize==0)
 			{m_nMax=1;}
 			else
-			{m_nMax= m_nSize*2;}		//分配两倍的内存
+			{m_nMax= m_nSize*2;}		
 			m_newzhizhen = new DataType [m_nMax];
 			SAFEJUDGEMENT (m_newzhizhen);
 				for( int i=0;i<m_nSize;i++ )
@@ -180,7 +180,7 @@ int CDArray<DataType>::Pushback(DataType dValue)  //追加一个新的元素到数组末尾
 				m_pData=m_newzhizhen;
 				m_nSize++;
 	}
-	else //(m_nSize<m_nMax)
+	else 
 	{
 		m_pData[m_nSize]=dValue;
 		m_nSize++;
