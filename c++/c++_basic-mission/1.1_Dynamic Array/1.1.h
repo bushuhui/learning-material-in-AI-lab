@@ -1,9 +1,12 @@
 #ifndef __CDARRAY_H__   //  Add the marco to avoid multi-include
 #define __CDARRAY_H__
 
+#include<iostream> // FIXME: include header first then define macros...
+
+
 #define SAFEDELETES(p)   if(p) {delete [] p; p=NULL;}
 #define SAFEJUDGEMENT(p)  if(p==NULL) {cout<<"no ehough memory"<<endl; return 0;}
-#include<iostream>
+
 
 class CDArray
 {	

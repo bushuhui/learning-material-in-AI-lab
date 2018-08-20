@@ -84,6 +84,7 @@ CPolynomial &CPolynomial::operator=(const CPolynomial& right)
 	return *this;
 }
 
+// FIXME: please put the test read file to main, just like using you old test method, but read values from file
 void CPolynomial::ReadFromFile(string file)
 {	
 	m_Polynomial.clear();
