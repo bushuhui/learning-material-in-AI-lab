@@ -12,6 +12,10 @@ typedef struct VNode
 	ArcNode *firstarc;
 }VNode;
 
+// FIXME: 
+//  (1) if the graph's node execeed 5, how?
+//  (2) How to use class to encapsulate variables and functions?
+
 int visited[5] = {0,0,0,0,0};
 
 void CreatGraph(int n , VNode G[])

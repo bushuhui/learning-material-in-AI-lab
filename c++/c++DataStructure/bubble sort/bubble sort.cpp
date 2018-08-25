@@ -26,12 +26,17 @@ void BubbleSort(int k[] , int n)
 
 int main()
 {
-	int i , a[11] = {-111,2,5,6,3,7,8,0,9,12,1};
+    // FIXME: 
+    //   (1) how to sort arbitary size array
+	//   (2) how to load data from file to evalute/test the programm
+
+    int i , a[11] = {-111,2,5,6,3,7,8,0,9,12,1};
 	cout<<"The original data array is"<<endl;
 	for(i=1;i<10;i++)
 		cout<<a[i]<<" ";
 	cout<<endl;
-	BubbleSort(a,10);
+
+    BubbleSort(a,10);
 	cout<<"The result of the array is"<<endl;
 	for(i=1;i<10;i++)
 		cout<<a[i]<<" ";

@@ -4,6 +4,8 @@
 #define STACK_INIT__SIZE 20
 #define STACKINCREMENT 10
 
+// FIXME: do not use Chinese in file name
+
 typedef char ElemType;
 typedef struct
 {
